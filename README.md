@@ -1,33 +1,102 @@
 # NeuronDotNet
+NeuronDotNet is an open source tool to build and run AI applications
+based on 'Artificial Neural Networks'. It is written in C# and is
+compatible with the .NET platform.
 
-## Why?
-I wanted to play with neural network in Unity and that was the only library I found that I could make it work with Unity.
+This tool exploits the potentialities of object oriented design and
+modular programming. The objective of the project is to support the
+development of AI applications and also to support experimental
+research in the field by providing a centralized framework for
+creation, training and usage of different types of artificial neural
+networks.
 
-## What?
-This is a neural network library that work in Unity.  
-The original source code is located at sourceforge.net, but it looks like it has not been touch since 2008.  
-However, it seems to work!  
-Original Source : https://sourceforge.net/projects/neurondotnet/
+## Background
+The original source code is located at
+[sourceforge.net](https://sourceforge.net/projects/neurondotnet/),
+but it looks like it has not been touch since 2008.  However, it
+seems to work!  
 
-## How?
-I just had to refactor some data structures to use the ones available in the .Net 2.0 SubSet.
-I think I made some additions to the library so that I could call certain methods in the Unity game loop.
+## Samples
+* [XOR Sample](Source/Samples/XOR%20Sample/XOR%20Sample/MainForm.cs)
+* [Kohonen SOM Demo](Source/Samples/SOM%20Demo/Kohonen%20SOM%20Demo/MainForm.cs)
+* [Function Approximation](Source/Samples/Function%20Approximation/Function%20Approximation/MainForm.cs)
+* [Traveling Salesman Problem Solver](Source/Samples/TSP%20Solver/TSP%20Solver/MainForm.cs)
 
 ## Usage Examples
-I have some Unity projects using this library:  
-https://github.com/tiagosomda/NeuralGames
+There are some Unity projects using this library:  
+* [NeuralGames](https://github.com/tiagosomda/NeuralGames)
 
-### How to include in your Unity project?
-Just download the library, build it, copy/paste the output dll (NeuronDotNet.Core.dll) under the Assets/Library folder in your Unity project. Call the library as you would with any other class.
+## Documentation
+The only thing close to a documentation right now are the examples
+and the source code itself.
 
-### Documentation
-The only thing close to a documentation right now are the examples and the source code itself.
+## 	Release history
+<details>
 
-## Why not other libraries?
-I am sure there are ways to run TensorFlow, CNTK, AForge.Net in Unity, but I haven't had time to explore these paths...  
+### NeuronDotNet 3.0
+Release Date: August 20th, 2008
 
-Let me know if you do know how to use other (more recent or better supported) libraries :)  
+* Support for neural networks with any acyclic structure of layers
+* One-One and Complete connectors are supported
+* Backpropagation networks and Kohonen SOMs are supported
+* Learning Rate changes from its initial value to a final value
+  using a pluggable function:
+  * Linear
+  * Logarithmic
+  * Hyperbolic
 
-CNTK: https://github.com/Microsoft/CNTK   
-TensorFlow: https://www.tensorflow.org/  
-AForge.Net : http://www.aforgenet.com/  
+  are built in
+* Neural network initialization modules are pluggable:
+  * Random
+  * Constant
+  * NguyenWidrow
+  * Normalized Random Functions
+  
+  are built in
+* Custom activation funtions used in backpropagation networks
+  are pluggable:
+  * Sigmoid
+  * sine
+  * tanh
+  * logarithmic
+  * linear
+
+  functions are built in
+* For a Kohonen Layer, Neighborhood functions are pluggable:
+  * Gaussian
+  * mexican hat
+
+  functions are built in
+* Various events are exposed which allow users to analyse how
+  a network learns
+* Kohonen layers are planar in shape. However, we can have circular
+  rows and/or columns which make them attain the shape of a cylindrical
+  surface or a toroidal surface.
+* Hexagonal and Rectangular Kohonen lattice topologies are supported
+* Training set has been defined to support Batch Training
+* API to add custom network architectures and learning algorithms
+* Layers, connectors, networks and training sets implement
+  ISerializable interface
+
+### NeuronDotNet 2.0
+Release Date: November 1st, 2007
+
+* Backpropagation neural networks with any acyclic structure of layers
+* Custom activation functions are pluggable
+* Enhanced BackPropagation Algorithm
+  (using Momentum term, Weight Decay and Jitter).
+* OneOne and Complete connections between layers
+
+### NeuronDotNet 1.0
+Release Date: May 3rd, 2007
+
+* First release
+* Support for simple feed-forward backpropagation neural networks
+* Activation functions - Sigmoid, Linear, Logarithminc, Sine or Tanh
+
+</details>
+
+## Other libraries
+* [CNTK](https://github.com/Microsoft/CNTK)
+* [TensorFlow](https://www.tensorflow.org/)
+* [AForge.Net](http://www.aforgenet.com/)
